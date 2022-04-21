@@ -50,7 +50,6 @@ install.interceptors.response.use(response => {
 
 
 function request(params: any) {
-  console.log('params', params)
   return new Promise((resolve, reject) => {
     install.request(params)
       .then(res => {

@@ -15,7 +15,7 @@
           </el-radio-group>
         </el-form-item>
         <el-form-item label="账户:">
-          <el-input v-model="loginForm.userName" />
+          <el-input v-model="loginForm.username" />
         </el-form-item>
         <el-form-item label="密码:">
           <el-input v-model="loginForm.password" type="password"/>
@@ -36,7 +36,7 @@ let router = useRouter()
 let ruleFormRef = ref(null)
 let loginForm = reactive({
   roleid: 0,
-  userName: '',
+  username: '',
   password: ''
 })
 

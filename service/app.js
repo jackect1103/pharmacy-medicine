@@ -7,6 +7,8 @@ import koaBody  from 'koa-body'
 // 接口
 import loginRouter from './router/login/index.js'
 import shopListRouter from './router/shopList/index.js'
+import durpInfosRouter from './router/durpInfos/index.js'
+import warehouseRouter from './router/warehouse/index.js'
 
 const __dirname = path.resolve();
 // 处理POST请求参数
@@ -35,6 +37,8 @@ app.use(koaBody({
 
 app.use(shopListRouter.routes()).use(shopListRouter.allowedMethods())// 允许http请求的所有方法
 app.use(loginRouter.routes()).use(loginRouter.allowedMethods())// 允许http请求的所有方法
+app.use(durpInfosRouter.routes()).use(durpInfosRouter.allowedMethods())// 允许http请求的所有方法
+app.use(warehouseRouter.routes()).use(warehouseRouter.allowedMethods())// 允许http请求的所有方法
 
 
 app.listen(PORT,() => {

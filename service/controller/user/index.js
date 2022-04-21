@@ -54,8 +54,8 @@ class UserController {
     const token = ctx.headers.authorization;
     console.log('token',  token)
     const req = ctx.request.body
-    const query = await userModelService.getUserInfo(req?.userName,req?.password,req?.roleid);
-    ctx.response.status = 200;
+    const query = await userModelService.getUserInfo(req?.username,req?.password,req?.roleid);
+    ctx.response.status = 200; 
     if (query) {
       ctx.body = {
         code: 0,

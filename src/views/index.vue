@@ -7,7 +7,7 @@
     <div @click="goToRouter('UpdateWarehouse')" class="text item">修改仓库信息</div>
     <div @click="goToRouter('AddDrug')" class="text item">添加药品信息</div>
     <div @click="goToRouter('UpdateDrug')" class="text item">修改药品信息</div>
-    <div @click="goToRouter('LogOut')" class="text item">退出登录</div>
+    <div @click="goToRouter('login')" class="text item">退出登录</div>
   </el-card>
 </template>
 
@@ -15,6 +15,9 @@
 import { useRouter} from 'vue-router'
 const router = useRouter()
 const goToRouter = (path) =>{
+  if (path === 'login') {
+    localStorage.clear()
+  }
   router.push({
     path
   })

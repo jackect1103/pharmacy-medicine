@@ -1,5 +1,5 @@
-import WarehouseModelService from '../../service/warehouse.js'
-class WarehouseModelService {
+import warehouseModelService from '../../service/warehouse.js'
+class WarehouseController {
 
 
   /**
@@ -42,5 +42,5 @@ class WarehouseModelService {
   }
 }
 
-const warehouseModelService = new WarehouseModelService()
-export default warehouseModelService
+const warehouseController = new WarehouseController()
+export default warehouseController

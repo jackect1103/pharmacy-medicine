@@ -1,5 +1,5 @@
 <template>
-  <el-table :data="tableData" style="width: 100%">
+  <el-table :data="tableData.list" style="width: 100%">
     <el-table-column prop="number" label="编号" width="150" />
     <el-table-column prop="factory" label="厂家" width="120" />
     <el-table-column prop="drugname" label="药品名称" width="120" />
@@ -21,23 +21,42 @@
 </template>
 
 <script lang="ts" setup>
+import {watch,reactive} from 'vue'
+import {findDrugHandle} from '@/api/durpInfos-api'
+const $props = defineProps<{
+  searchParams?:object
+}>()
+
+const tableData = reactive({
+  count:0,
+  list:[
+    {
+      number: '2016-05-03',
+      factory: 'Tom',
+      drugname: 'California',
+      warehousename: 'Los Angeles',
+      price: '11',
+      productiontime: 'CA 90036',
+      expirationtime: 'Home',
+      prescription: 'Home',
+      class: 'Home',
+      librarynumber: 'Home',
+      regionsnumber: 'Home',
+    }
+  ]
+})
+watch($props.searchParams,(value)=>{
+  findDrugHandle(value).then(res => {
+    console.log('res', res)
+  })
+},{
+  deep:true,
+  immediate:true
+})
+
 const handleClick = () => {
   console.log('click')
 }
 
-const tableData = [
-  {
-    number: '2016-05-03',
-    factory: 'Tom',
-    drugname: 'California',
-    warehousename: 'Los Angeles',
-    price: '11',
-    productiontime: 'CA 90036',
-    expirationtime: 'Home',
-    prescription: 'Home',
-    class: 'Home',
-    librarynumber: 'Home',
-    regionsnumber: 'Home',
-  }
-]
+
 </script>

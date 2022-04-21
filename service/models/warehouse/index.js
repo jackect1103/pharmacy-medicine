@@ -1,47 +1,47 @@
-const warehouse = function (sequelize, DataTypes) {
+const warehouseModel = function (sequelize, DataTypes) {
 
-    return sequelize.define('warehouse', {
-      id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        allowNull: true,
-        autoIncrement: true
-      },
-      warehousename: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        field: 'warehousename'
-      },
-      drugclass: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        field: 'drugclass'
-      },
-      drugname: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        field: 'drugname'
-      },
-      librarynum: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        field: 'librarynum'
-      },
-      outbound: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        field: 'outbound'
-      },
-      entry: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        field: 'entry'
-      }
+  return sequelize.define('warehouse', {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      allowNull: true,
+      autoIncrement: true
     },
-    {
-      timestamps: false
-    })
-  }
-  export {
-    warehouse
-  }
+    warehousename: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      field: 'warehousename'
+    },
+    drugclass: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      field: 'drugclass'
+    },
+    drugname: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      field: 'drugname'
+    },
+    librarynum: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      field: 'librarynum'
+    },
+    outbound: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      field: 'outbound'
+    },
+    entry: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      field: 'entry'
+    }
+  },
+  {
+    timestamps: false
+  })
+}
+export {
+  warehouseModel
+}

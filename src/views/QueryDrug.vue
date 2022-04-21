@@ -23,21 +23,22 @@
         </el-form-item>
     </el-form>
   </el-card>
-  <durpInfostable></durpInfostable>
+  <durpInfostable :searchParams="searchParams"></durpInfostable>
 </template>
 
 <script lang="ts" setup>
-import {ref} from 'vue'
+import {ref,reactive} from 'vue'
 import durpInfostable from './components/durpInfostable.vue'
 const ruleFormRef = ref()
-const durpInfos = ref({
+let durpInfos = reactive({
   durpname:'',
   number:'',
   factory:'',
   warehousename:'',
 })
+let searchParams = reactive({})
 const checkdrup = () =>{
-
+  searchParams = durpInfos
 }
 </script>
 

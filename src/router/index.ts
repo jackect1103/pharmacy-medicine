@@ -18,35 +18,59 @@ const routes:Array<RouteRecordRaw> = [
   },{
     path:'/',
     name: 'HOME', 
-    component: HOME
+    component: HOME,
+    meta:{
+      auth:true,
+    }
   },{
     path:'/QueryDrug',
     name: 'QueryDrug', 
-    component: QueryDrug
+    component: QueryDrug,
+    meta:{
+      auth:true,
+    }
   },{
     path:'/ViewWarehouse',
     name: 'ViewWarehouse', 
-    component: ViewWarehouse
+    component: ViewWarehouse,
+    meta:{
+      auth:true,
+    }
   },{
     path:'/ViewDrug',
     name: 'ViewDrug', 
-    component: ViewDrug
+    component: ViewDrug,
+    meta:{
+      auth:true,
+    }
   },{
     path:'/AddWarehouse',
     name: 'AddWarehouse', 
-    component: AddWarehouse
+    component: AddWarehouse,
+    meta:{
+      auth:true,
+    }
   },{
     path:'/UpdateWarehouse',
     name: 'UpdateWarehouse', 
-    component: UpdateWarehouse
+    component: UpdateWarehouse,
+    meta:{
+      auth:true,
+    }
   },{
     path:'/AddDrug',
     name: 'AddDrug', 
-    component: AddDrug
+    component: AddDrug,
+    meta:{
+      auth:true,
+    }
   },{
     path:'/UpdateDrug',
     name: 'UpdateDrug', 
-    component: UpdateDrug
+    component: UpdateDrug,
+    meta:{
+      auth:true,
+    }
   },
   
   {
