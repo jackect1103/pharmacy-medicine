@@ -1,0 +1,86 @@
+{
+    "depot": [
+        {
+            "name": "仓库1",
+            "//name": "仓库名称",
+            "class": "内服药",
+            "//class": "药品分类",
+            "total": 20,
+            "//total": "本库数量",
+            "ininfo": "2022/1/1进2盒",
+            "//ininfo": "进库信息",
+            "outinfo": "2022/1/1出2盒",
+            "//outinfo": "出库信息",
+            "drug_name": "布洛芬缓释胶囊",
+            "//drug_name": "药品名称"
+        },
+        {
+            "name": "仓库1",
+            "class": "内服药",
+            "total": 20,
+            "ininfo": "2022/1/1进2盒",
+            "outinfo": "2022/1/1出2盒",
+            "drug_name": "马来酸曲美布汀片"
+        },
+        {
+            "name": "仓库2",
+            "class": "内服药",
+            "total": 180,
+            "ininfo": "2022/1/1进2盒",
+            "outinfo": "2022/1/1出2盒",
+            "drug_name": "布洛芬缓释胶囊"
+        }
+    ],
+    "drug": [
+        {
+            "number": 200072,
+            "//number": "药品编号",
+            "factory": "舒丽启能",
+            "//factory": "药品厂家",
+            "name": "马来酸曲美布汀片",
+            "//name": "药品名称",
+            "price": 20.50,
+            "//price": "药品价格",
+            "depot_name": "仓库1",
+            "//depot_name": "仓库名称",
+            "prod": "2020-01-02",
+            "//prod": "生产日期",
+            "expired": "2022-02-04",
+            "//expired": "过期时间",
+            "pre": "是",
+            "//pre": "是否为处方",
+            "depot_class": "内服药",
+            "//depot_class": "分类",
+            "depot_total": 20,
+            "//depot_total": "本库数量",
+            "total": 20,
+            "//total": "地区药品数量：同种药品在不同仓库相加地总数"
+        },
+        {
+            "number": 691134,
+            "factory": "中美史克",
+            "name": "布洛芬缓释胶囊",
+            "price": 30.00,
+            "depot_name": "仓库2",
+            "prod": "2020-01-01",
+            "expired": "2022-12-01",
+            "pre": "否",
+            "depot_class": "内服药",
+            "depot_total": 180,
+            "total": 200
+        },
+        {
+            "number": 691139,
+            "factory": "中美史克",
+            "name": "布洛芬缓释胶囊",
+            "price": 30.00,
+            "depot_name": "仓库1",
+            "prod": "2020-01-01",
+            "expired": "2022-12-01",
+            "pre": "否",
+            "depot_class": "内服药",
+            "depot_total": 20,
+            "total": 200
+        }
+    ]
+}
