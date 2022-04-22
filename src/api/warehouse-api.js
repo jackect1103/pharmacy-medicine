@@ -1,5 +1,13 @@
 import request from "@/utils/request"
 
+export function findWarehouseHandle (data){
+  return request({
+    url: '/warehouse/findWarehouseHandle',
+    method: 'get',
+    data
+  })
+}
+
 export function addWarehouseHandle (data){
   return request({
     url: '/warehouse/addWarehouseHandle',

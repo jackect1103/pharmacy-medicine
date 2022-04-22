@@ -12,15 +12,15 @@ const warehouseModel = function (sequelize, DataTypes) {
       allowNull: false,
       field: 'warehousename'
     },
-    drugclass: {
+    class: {
       type: DataTypes.STRING,
       allowNull: false,
-      field: 'drugclass'
+      field: 'class'
     },
-    drugname: {
+    durgname: {
       type: DataTypes.STRING,
       allowNull: false,
-      field: 'drugname'
+      field: 'durgname'
     },
     librarynum: {
       type: DataTypes.STRING,

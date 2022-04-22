@@ -1,20 +1,20 @@
 <template>
-  <el-table :data="tableData.list" style="width: 100%">
+  <el-table :data="tableData.list" style="width: 100%" border>
     <el-table-column prop="number" label="编号" width="150" />
-    <el-table-column prop="factory" label="厂家" width="120" />
-    <el-table-column prop="drugname" label="药品名称" width="120" />
-    <el-table-column prop="warehousename" label="仓库名称" width="120" />
-    <el-table-column prop="price" label="价格" width="60" />
-    <el-table-column prop="productiontime" label="生产日期" width="120" />
-    <el-table-column prop="expirationtime" label="过期日期" width="120" />
+    <el-table-column prop="factory" label="厂家" width="150" />
+    <el-table-column prop="durgname" label="药品名称" width="150" />
+    <el-table-column prop="warehousename" label="仓库名称" width="150" />
+    <el-table-column prop="price" label="价格" width="100" />
+    <el-table-column prop="productiontime" label="生产日期" width="180" />
+    <el-table-column prop="expirationtime" label="过期日期" width="180" />
     <el-table-column prop="prescription" label="是否为处方" width="120" />
-    <el-table-column prop="class" label="分类" width="120" />
-    <el-table-column prop="librarynumber" label="本库数量" width="120" />
-    <el-table-column prop="regionsnumber" label="地区数量" width="120" />
-    <el-table-column fixed="right" label="Operations" width="120">
-      <template #default>
-        <el-button type="text" size="small" @click="handleClick">删除</el-button>
-        <el-button type="text" size="small">修改</el-button>
+    <el-table-column prop="class" label="分类" width="150" />
+    <el-table-column prop="librarynumber" label="本库数量" width="150" />
+    <el-table-column prop="regionsnumber" label="地区数量" width="150" />
+    <el-table-column fixed="right" label="相关操作" width="120" v-if="userinfos.roleid == 0">
+      <template #default="scope">
+        <el-button type="text" size="small" @click="goToRouter('delete',scope.row)">删除</el-button>
+        <el-button type="text" size="small" @click="goToRouter('UpdateDrug',scope.row)">修改</el-button>
       </template>
     </el-table-column>
   </el-table>
@@ -22,41 +22,53 @@
 
 <script lang="ts" setup>
 import {watch,reactive} from 'vue'
-import {findDrugHandle} from '@/api/durpInfos-api'
+import { useRouter} from 'vue-router'
+import {findDrugHandle,deleteDrugHandle} from '@/api/durpInfos-api'
+const router = useRouter()
 const $props = defineProps<{
-  searchParams?:object
+  searchParams?:Object,
 }>()
 
 const tableData = reactive({
   count:0,
-  list:[
-    {
-      number: '2016-05-03',
-      factory: 'Tom',
-      drugname: 'California',
-      warehousename: 'Los Angeles',
-      price: '11',
-      productiontime: 'CA 90036',
-      expirationtime: 'Home',
-      prescription: 'Home',
-      class: 'Home',
-      librarynumber: 'Home',
-      regionsnumber: 'Home',
-    }
-  ]
+  list:[]
 })
-watch($props.searchParams,(value)=>{
-  findDrugHandle(value).then(res => {
-    console.log('res', res)
+const searchDrupHandle = (params) => {
+  findDrugHandle(params).then(res => {
+    tableData.list = res.data.data.map(item => {
+      item.prescription = item.prescription == 0 ? '是' : '否'
+      return item
+    })
   })
+}
+
+watch(() => $props.searchParams,(value)=>{
+  console.log('value', value)
+  searchDrupHandle(value)
 },{
   deep:true,
   immediate:true
 })
 
-const handleClick = () => {
-  console.log('click')
+const userinfos = JSON.parse(localStorage.getItem('userinfos'))
+
+
+const goToRouter = async (type,row) => {
+  console.log('row', row)
+  if (type === 'delete') {
+    let res = await deleteDrugHandle({
+      id:row.id
+    })
+    console.log('res', res)
+    searchDrupHandle({})
+  } else {
+    router.push({
+      path:type,
+      query:row
+    })
+  }
 }
 
 
 </script>
+

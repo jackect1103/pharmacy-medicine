@@ -61,6 +61,10 @@ class UserController {
         code: 0,
         data: {
           message:'登录成功',
+          data:{
+            username:req.username,
+            roleid:req.roleid
+          },
           token:'ccnibiufmisojffnasidhjmfjd'
         }
       }

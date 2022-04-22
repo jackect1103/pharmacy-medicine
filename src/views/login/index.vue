@@ -43,8 +43,10 @@ let loginForm = reactive({
 const submitForm = async () => {
   console.log(loginForm)
   let res = await login(loginForm)
+  console.log('res', res)
   if (res.code == 0) {
     localStorage.setItem('token',res.data.token)
+    localStorage.setItem('userinfos',JSON.stringify(res.data.data))
     console.log('res', res)
     router.push('/')
   }
