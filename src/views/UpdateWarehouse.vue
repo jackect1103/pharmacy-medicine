@@ -36,7 +36,7 @@ import { ref } from 'vue'
 import { useRoute,useRouter } from 'vue-router'
 import {updateWarehouseHandle} from '@/api/warehouse-api'
 const route = useRoute()
-const router = useRouter()
+const router = useRouter() 
 const ruleFormRef = ref()
 const warehouse = ref({
   warehousename:'',

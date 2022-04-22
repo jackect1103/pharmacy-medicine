@@ -69,10 +69,10 @@ const durpInfos = ref({
   regionsnumber:'',
 })
 const addhandle =async () => {
-  await addDrugHandle(durpInfos.value)
-  router.replace({
-    path:'ViewDrug',
-  })
+  let res =  await addDrugHandle(durpInfos.value)
+  if (res.code == 0) {
+    router.replace('ViewDrug')
+  }
 }
 </script>
 

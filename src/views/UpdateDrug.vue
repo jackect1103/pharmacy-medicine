@@ -51,9 +51,10 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute,useRouter } from 'vue-router'
 import {updateDrugHandle} from '@/api/durpInfos-api'
 const route = useRoute()
+const router = useRouter()
 const ruleFormRef = ref()
 const druginfos = ref({
   id:'',
@@ -75,6 +76,9 @@ druginfos.value.prescription = druginfos.value.prescription == '是' ? '0' : '1'
 const updatehandle = async () => {
   let res = await updateDrugHandle(druginfos.value)
   console.log('res', res)
+  if (res.code == 0) {
+    router.replace('ViewDrug')
+  }
 }
 </script>
 
