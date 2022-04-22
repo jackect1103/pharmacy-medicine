@@ -1,6 +1,6 @@
 import Sequelize from 'sequelize'
-var sequelize = new Sequelize('test_database','root','QWAszx1103!',{
-  host:'106.13.199.161',
+var sequelize = new Sequelize('test_database','账号','密码',{
+  host:'数据库所在服务器（或者本地服务器）',
   dialect:'mysql',
   operatorsAliases:false,
   dialectOptions:{
